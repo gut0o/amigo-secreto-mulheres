@@ -1,9 +1,9 @@
-const amigos = {
-  "Mara": "Nena",
-  "Renata": "Gisele",
-  "Renata Ferreira": "Bruna",
-  "Gisele": "Ana"
-};
+let amigos = {};
+
+fetch("dados.json")
+  .then(response => response.json())
+  .then(data => amigos = data)
+  .catch(() => alert("Erro ao carregar os dados"));
 
 function iniciarRevelacao() {
   const nome = document.getElementById("nome").value;
@@ -12,22 +12,18 @@ function iniciarRevelacao() {
   const contador = document.getElementById("contador");
   const audio = document.getElementById("audio");
 
-  if (!nome) {
-    resultado.innerText = "Por favor, selecione seu nome.";
+  if (!nome || !amigos[nome]) {
+    resultado.innerText = "Nome não encontrado.";
     return;
   }
 
-  // Limpa resultado anterior
   resultado.innerHTML = "";
-
-  // Mostra suspense
   suspense.classList.remove("hidden");
 
-  // Inicia música
   audio.currentTime = 0;
   audio.play();
 
-  let tempo = 10; // ⬅️ CONTAGEM DE 10 SEGUNDOS
+  let tempo = 10;
   contador.innerText = tempo;
 
   const intervalo = setInterval(() => {
@@ -36,7 +32,6 @@ function iniciarRevelacao() {
 
     if (tempo === 0) {
       clearInterval(intervalo);
-
       suspense.classList.add("hidden");
       audio.pause();
 

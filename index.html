@@ -13,14 +13,9 @@
     <h1>Amigo Secreto – Especial das Mulheres</h1>
     <p>Chegou a hora de descobrir quem você tirou 💖</p>
 
+    <!-- Select gerado automaticamente -->
     <select id="nome">
-      <option value="">Selecione seu nome</option>
-      <option>Renata Ferreira</option>
-      <option>Mara</option>
-      <option>Nena</option>
-      <option>Renata</option>
-      <option>Gisele</option>
-      <option>Ana</option>
+      <option value="">Carregando nomes...</option>
     </select>
 
     <button onclick="iniciarRevelacao()">Revelar</button>
@@ -28,7 +23,7 @@
     <!-- Suspense -->
     <div id="suspense" class="hidden">
       <h2>Preparados? 👀</h2>
-      <div id="contador">3</div>
+      <div id="contador">10</div>
     </div>
 
     <!-- Resultado -->
@@ -38,6 +33,29 @@
     <audio id="audio" src="musica_suspense_10s.mp3" preload="auto"></audio>
   </div>
 
+  <!-- Script principal -->
   <script src="script.js"></script>
+
+  <!-- Script para carregar os nomes -->
+  <script>
+    fetch("dados.json")
+      .then(response => response.json())
+      .then(data => {
+        const select = document.getElementById("nome");
+        select.innerHTML = '<option value="">Selecione seu nome</option>';
+
+        Object.keys(data).forEach(nome => {
+          const option = document.createElement("option");
+          option.value = nome;
+          option.textContent = nome;
+          select.appendChild(option);
+        });
+      })
+      .catch(() => {
+        document.getElementById("nome").innerHTML =
+          '<option value="">Erro ao carregar nomes</option>';
+      });
+  </script>
+
 </body>
 </html>
