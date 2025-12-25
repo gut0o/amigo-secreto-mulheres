@@ -1,8 +1,8 @@
 const amigos = {
-  "Ana": "Carla",
-  "Carla": "Maria",
-  "Maria": "Fernanda",
-  "Fernanda": "Ana"
+  "Mara": "Nena",
+  "Renata": "Gisele",
+  "Renata Ferreira": "Bruna",
+  "Gisele": "Ana"
 };
 
 function iniciarRevelacao() {
