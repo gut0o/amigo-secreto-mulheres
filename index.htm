@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Amigo Secreto – Especial das Mulheres</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <img src="amigo-secreto.png" alt="Amigo Secreto" class="logo">
+
+    <h1>Amigo Secreto – Especial das Mulheres</h1>
+    <p>Chegou a hora de descobrir quem você tirou 💖</p>
+
+    <select id="nome">
+      <option value="">Selecione seu nome</option>
+      <option>Ana</option>
+      <option>Carla</option>
+      <option>Maria</option>
+      <option>Fernanda</option>
+    </select>
+
+    <button onclick="iniciarRevelacao()">Revelar</button>
+
+    <!-- Suspense -->
+    <div id="suspense" class="hidden">
+      <h2>Preparados? 👀</h2>
+      <div id="contador">3</div>
+    </div>
+
+    <!-- Resultado -->
+    <div id="resultado"></div>
+
+    <!-- Música de suspense -->
+    <audio id="audio" src="musica_suspense_10s.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
