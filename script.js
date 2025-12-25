@@ -1,6 +1,6 @@
 let amigos = {};
 
-fetch("dados.json")
+fetch("/dados.json")
   .then(response => response.json())
   .then(data => amigos = data)
   .catch(() => alert("Erro ao carregar os dados"));

@@ -38,7 +38,7 @@
 
   <!-- Script para carregar os nomes -->
   <script>
-    fetch("dados.json")
+    fetch("/dados.json")
       .then(response => response.json())
       .then(data => {
         const select = document.getElementById("nome");
